@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Senior QA Engineer, Test Automation Engineer & Freelance Web Developer. Building enterprise systems, automation frameworks, and professional websites." />
+  <meta name="author" content="Rividemeo" />
+  <meta name="theme-color" content="#0d2137" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rividemeo — Senior QA & Test Automation Engineer" />
+  <meta property="og:description" content="Senior QA Engineer, Test Automation Engineer & Freelance Web Developer." />
+  <meta property="og:type" content="website" />
+
+  <title>Rividemeo — Senior QA & Automation Engineer</title>
+
+  <link rel="icon" type="image/svg+xml" href="assets/profile.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=10" />
+</head>
+<body>
+  <!-- ============ LOADING ANIMATION ============ -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__logo">
+      <svg viewBox="0 0 100 100" width="64" height="64" aria-hidden="true">
+        <circle class="preloader__ring" cx="50" cy="50" r="42" />
+      </svg>
+      <span class="preloader__initials">QA</span>
+    </div>
+  </div>
+
+  <!-- ============ SCROLL PROGRESS BAR ============ -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="nav" id="navbar">
+    <div class="container nav__inner">
+      <a href="#hero" class="nav__brand" aria-label="Home">
+        <span class="nav__brand-mark">&lt;/&gt;</span>
+        <span class="nav__brand-name" data-bind="shortName">Rividemeo</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#about" class="nav__link" data-i18n="nav.about">About</a>
+        <a href="#skills" class="nav__link" data-i18n="nav.skills">Skills</a>
+        <a href="#experience" class="nav__link" data-i18n="nav.experience">Experience</a>
+        <a href="#projects" class="nav__link" data-i18n="nav.projects">Projects</a>
+        <a href="#services" class="nav__link" data-i18n="nav.services">Services</a>
+        <a href="#tutoring" class="nav__link" data-i18n="nav.tutoring">Tutoring</a>
+        <a href="#contact" class="nav__link nav__link--cta" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language" title="Switch language EN / ID">
+          <span class="lang-toggle__opt" data-lang="en">EN</span>
+          <span class="lang-toggle__opt" data-lang="id">ID</span>
+        </button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" width="20" height="20"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zM12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" width="20" height="20"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+        </button>
+        <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__glow hero__glow--1"></div>
+        <div class="hero__glow hero__glow--2"></div>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__content reveal">
+          <p class="hero__eyebrow">
+            <span class="status-dot"></span> <span data-i18n="hero.eyebrow">Available for freelance projects</span>
+          </p>
+          <h1 class="hero__title">
+            <span data-i18n="hero.greeting">Hi, I'm</span> <span class="text-gradient" data-bind="fullName">Rividemeo</span>
+          </h1>
+          <h2 class="hero__roles">
+            <span class="typed" id="typed"></span><span class="typed__cursor">|</span>
+          </h2>
+          <p class="hero__summary" data-bind="summary">
+            IT professional with hands-on experience in Software Quality Assurance,
+            Test Automation, full-stack web development, and system integration.
+          </p>
+          <div class="hero__cta">
+            <a href="cv.html" target="_blank" rel="noopener" class="btn btn--primary" id="downloadCv">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+              <span data-i18n="hero.downloadCv">Download CV</span>
+            </a>
+            <a href="#contact" class="btn btn--ghost">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>
+              <span data-i18n="hero.contactMe">Contact Me</span>
+            </a>
+          </div>
+          <ul class="hero__stats">
+            <li><strong data-count="8">0</strong><span data-i18n="hero.statYears">Years Experience</span></li>
+            <li><strong data-count="2">0</strong><span data-i18n="hero.statProjects">Projects Delivered</span></li>
+            <li><strong data-count="10">0</strong><span data-i18n="hero.statFrameworks">Automation Frameworks</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="avatar">
+            <div class="avatar__ring"></div>
+            <img src="assets/profile.jpg" alt="Profile photo" class="avatar__img" id="profileImg" />
+            <div class="avatar__badge avatar__badge--qa">QA</div>
+            <div class="avatar__badge avatar__badge--dev">DEV</div>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll down">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="about.tag">01 — About</span>
+          <h2 class="section__title" data-i18n="about.title">Turning quality into a competitive advantage</h2>
+        </div>
+        <div class="about">
+          <div class="about__text reveal">
+            <p data-i18n="about.p1" data-i18n-html>
+              I'm a <strong>QA Automation Engineer with 8 years of experience</strong> in software and
+              quality engineering.
+            </p>
+            <p data-i18n="about.p2" data-i18n-html>
+              I specialize in <strong>API, gRPC, and end-to-end web automation using C# and Playwright</strong>.
+            </p>
+            <p data-i18n="about.p3" data-i18n-html>
+              I'm passionate about <strong>maintainable automation and continuous improvement</strong>.
+            </p>
+            <div class="about__highlights">
+              <div class="about__highlight">
+                <h4 data-i18n="about.h1">Test Automation</h4>
+                <p data-i18n="about.d1">API, gRPC &amp; end-to-end web automation with C# and Playwright.</p>
+              </div>
+              <div class="about__highlight">
+                <h4 data-i18n="about.h2">Quality &amp; Planning</h4>
+                <p data-i18n="about.d2">Test plans, functional, regression &amp; performance testing.</p>
+              </div>
+              <div class="about__highlight">
+                <h4 data-i18n="about.h3">CI/CD Integration</h4>
+                <p data-i18n="about.d3">Automated suites and JMeter load tests in delivery pipelines.</p>
+              </div>
+            </div>
+          </div>
+          <aside class="about__card reveal">
+            <h3 data-i18n="about.factsTitle">Quick facts</h3>
+            <ul class="about__facts">
+              <li><span data-i18n="about.factRole">Role</span><strong data-i18n="about.factRoleV">QA Automation Engineer</strong></li>
+              <li><span data-i18n="about.factFocus">Focus</span><strong data-i18n="about.factFocusV">Automation & Quality</strong></li>
+              <li><span data-i18n="about.factStack">Stack</span><strong data-i18n="about.factStackV">C# · Playwright · .NET</strong></li>
+              <li><span data-i18n="about.factFreelance">Freelance</span><strong data-i18n="about.factFreelanceV">Open to projects</strong></li>
+              <li><span data-i18n="about.factLocation">Location</span><strong data-bind="location">Remote / On-site</strong></li>
+            </ul>
+            <a href="#contact" class="btn btn--primary btn--block" data-i18n="about.cta">Let's work together</a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="skills.tag">02 — Skills</span>
+          <h2 class="section__title" data-i18n="skills.title">Tools &amp; technologies I work with</h2>
+        </div>
+        <div class="skills" id="skillsGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="exp.tag">03 — Experience</span>
+          <h2 class="section__title" data-i18n="exp.title">A timeline of impact</h2>
+        </div>
+        <div class="timeline" id="timeline">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section section--alt" id="projects">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="proj.tag">04 — Projects</span>
+          <h2 class="section__title" data-i18n="proj.title">Featured work</h2>
+        </div>
+        <div class="projects" id="projectsGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="serv.tag">05 — Services</span>
+          <h2 class="section__title" data-i18n="serv.title">Freelance services</h2>
+          <p class="section__lead" data-i18n="serv.lead">
+            Need a website or a robust automation suite? Here's how I can help — starting from Rp2.000.000.
+          </p>
+        </div>
+        <div class="services" id="servicesGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TUTORING (LES PRIVAT IT) ============ -->
+    <section class="section section--alt" id="tutoring">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="tut.tag">06 — Tutoring</span>
+          <h2 class="section__title"><span data-i18n="tut.titleMain">Private IT Tutoring</span> <span class="section__title-sub" data-i18n="tut.titleSub">· Les Privat IT</span></h2>
+          <p class="section__lead" id="tutoringTagline"></p>
+        </div>
+        <div class="tutoring">
+          <div class="tutoring__side reveal">
+            <h3 class="tutoring__h" data-i18n="tut.learn">What you'll learn</h3>
+            <ul class="tutoring__topics" id="tutoringTopics"></ul>
+            <ul class="tutoring__info" id="tutoringInfo"></ul>
+            <a class="btn btn--primary btn--block" data-bind-href="whatsappLink" target="_blank" rel="noopener" href="#">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>
+              <span data-i18n="tut.book">Book a session via WhatsApp</span>
+            </a>
+          </div>
+          <div class="tutoring__packages" id="tutoringPackages">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <div class="curriculum reveal">
+          <h3 class="curriculum__heading" data-i18n="tut.curHeading">Curriculum by level</h3>
+          <p class="curriculum__sub" data-i18n="tut.curSub">Structured learning paths — each module runs over 4 sessions and ends with a mini project.</p>
+          <div id="curriculum"><!-- Rendered by JS --></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__tag" data-i18n="contact.tag">07 — Contact</span>
+          <h2 class="section__title" data-i18n="contact.title">Let's build something great</h2>
+          <p class="section__lead" data-i18n="contact.lead">
+            Have a project, a role, or a question? I usually reply within one business day.
+          </p>
+        </div>
+        <div class="contact">
+          <div class="contact__info reveal">
+            <a class="contact__item" data-bind-href="emailLink" href="#">
+              <span class="contact__icon">✉</span>
+              <span><small data-i18n="contact.email">Email</small><strong data-bind="email">you@example.com</strong></span>
+            </a>
+            <a class="contact__item" data-bind-href="whatsappLink" target="_blank" rel="noopener" href="#">
+              <span class="contact__icon">💬</span>
+              <span><small>WhatsApp</small><strong data-bind="whatsappDisplay">+62 812 0000 0000</strong></span>
+            </a>
+            <a class="contact__item" data-bind-href="linkedin" target="_blank" rel="noopener" href="#">
+              <span class="contact__icon">in</span>
+              <span><small>LinkedIn</small><strong>linkedin.com/in/rividemeo</strong></span>
+            </a>
+            <a class="contact__item" data-bind-href="github" target="_blank" rel="noopener" href="#">
+              <span class="contact__icon">⌨</span>
+              <span><small>GitHub</small><strong>github.com/rividemeo</strong></span>
+            </a>
+          </div>
+
+          <form class="contact__form reveal" id="contactForm" novalidate>
+            <div class="field">
+              <label for="name" data-i18n="contact.fName">Name</label>
+              <input type="text" id="name" name="name" data-i18n-ph="contact.phName" placeholder="Jane Doe" required />
+              <span class="field__error" data-error="name"></span>
+            </div>
+            <div class="field">
+              <label for="cemail" data-i18n="contact.fEmail">Email</label>
+              <input type="email" id="cemail" name="email" data-i18n-ph="contact.phEmail" placeholder="jane@company.com" required />
+              <span class="field__error" data-error="email"></span>
+            </div>
+            <div class="field">
+              <label for="subject" data-i18n="contact.fSubject">Subject</label>
+              <input type="text" id="subject" name="subject" data-i18n-ph="contact.phSubject" placeholder="Project inquiry" />
+            </div>
+            <div class="field">
+              <label for="message" data-i18n="contact.fMessage">Message</label>
+              <textarea id="message" name="message" rows="5" data-i18n-ph="contact.phMessage" placeholder="Tell me about your project or role..." required></textarea>
+              <span class="field__error" data-error="message"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block" id="submitBtn" data-i18n="contact.send">Send message</button>
+            <p class="contact__note" id="formStatus" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="nav__brand-mark">&lt;/&gt;</span>
+        <span data-bind="fullName">Rividemeo</span>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="footer__social" id="footerSocial">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year"></span> <span data-bind="fullName">Rividemeo</span>. <span data-i18n="footer.rights">All rights reserved.</span></p>
+      <p data-i18n="footer.tagline">Built with care — clean code, fast feedback, real results.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <script src="js/i18n.js?v=10"></script>
+  <script src="js/data.js?v=10"></script>
+  <script src="js/main.js?v=10"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rividemeo — Curriculum Vitae</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js"></script>
+  <style>
+    :root { --navy:#0d2137; --blue:#1565c0; --muted:#5b6b7f; --line:#e2e8f2; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", system-ui, sans-serif; color: var(--navy); background: #eef2f7; line-height: 1.55; padding: 28px; }
+    .toolbar { max-width: 800px; margin: 0 auto 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .toolbar a, .toolbar button { font: inherit; font-weight: 600; font-size: .9rem; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--navy); cursor: pointer; text-decoration: none; }
+    .toolbar .print { background: linear-gradient(135deg,#1565c0,#2f88e0); color: #fff; border: none; }
+    .page { max-width: 800px; margin: 0 auto; background: #fff; padding: 48px; border-radius: 12px; box-shadow: 0 20px 50px -24px rgba(13,33,55,.3); }
+    h1 { font-family: "Space Grotesk"; font-size: 2.1rem; letter-spacing: -.5px; }
+    .role { color: var(--blue); font-weight: 600; font-size: 1.05rem; margin-top: 2px; }
+    .contact { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 10px; color: var(--muted); font-size: .88rem; }
+    .contact a { color: var(--muted); text-decoration: none; }
+    section { margin-top: 26px; }
+    h2 { font-family: "Space Grotesk"; font-size: 1rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--blue); border-bottom: 2px solid var(--line); padding-bottom: 6px; margin-bottom: 12px; }
+    .summary { color: #33475b; }
+    /* Fill pages naturally, but never slice through a single line/bullet. */
+    .job__top, .skill-row { break-inside: avoid; page-break-inside: avoid; }
+    h2 { break-after: avoid; page-break-after: avoid; }
+    .job { margin-bottom: 16px; }
+    .job__top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .job__role { font-weight: 600; }
+    .job__period { color: var(--muted); font-size: .85rem; white-space: nowrap; }
+    .job__company { color: var(--blue); font-size: .9rem; margin-bottom: 5px; }
+    .job ul { margin-left: 18px; }
+    .job li { margin-bottom: 3px; font-size: .92rem; color: #33475b; break-inside: avoid; page-break-inside: avoid; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+    .skill-row { font-size: .9rem; }
+    .skill-row b { color: var(--navy); }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .toolbar { display: none; }
+      .page { box-shadow: none; border-radius: 0; max-width: none; padding: 24px 32px; }
+      @page { margin: 14mm; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <a href="index.html" id="backLink">← Back to portfolio</a>
+    <button class="print" id="dlBtn">⬇ <span id="dlLabel">Download PDF</span></button>
+  </div>
+
+  <div class="page" id="cv"><!-- filled by JS from data.js --></div>
+
+  <script src="js/data.js?v=10"></script>
+  <script>
+    (function () {
+      var D = window.PORTFOLIO || {};
+
+      // Match the language chosen on the main site (default English).
+      var LANG = "en";
+      try { LANG = localStorage.getItem("lang") === "id" ? "id" : "en"; } catch (e) {}
+
+      // Resolve a bilingual { en, id } value (or pass through plain values).
+      function L(v) {
+        if (v && typeof v === "object" && !Array.isArray(v) && ("en" in v || "id" in v)) {
+          return v[LANG] != null ? v[LANG] : v.en;
+        }
+        return v;
+      }
+      var esc = function (s) { return String(s).replace(/[&<>]/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]; }); };
+
+      var LABELS = {
+        en: { profile: "Profile", experience: "Experience", skills: "Skills" },
+        id: { profile: "Profil", experience: "Pengalaman", skills: "Keahlian" },
+      }[LANG];
+
+      var experience = (D.experience || []).map(function (e) {
+        return '<div class="job"><div class="job__top"><span class="job__role">' + esc(e.role) +
+          '</span><span class="job__period">' + esc(e.period) + '</span></div>' +
+          '<div class="job__company">' + esc(e.company) + '</div><ul>' +
+          L(e.achievements).map(function (a) { return '<li>' + esc(a) + '</li>'; }).join("") +
+          '</ul></div>';
+      }).join("");
+
+      var skills = (D.skills || []).map(function (c) {
+        return '<div class="skill-row"><b>' + esc(L(c.category)) + ':</b> ' +
+          c.items.map(function (s) { return esc(s); }).join(", ") + '</div>';
+      }).join("");
+
+      document.getElementById("cv").innerHTML =
+        '<h1>' + esc(D.fullName || "Rividemeo") + '</h1>' +
+        '<div class="role">' + (L(D.roles) || []).map(esc).join(" · ") + '</div>' +
+        '<div class="contact">' +
+          '<a href="mailto:' + esc(D.email) + '">' + esc(D.email) + '</a>' +
+          '<span>' + esc(D.whatsappDisplay || "") + '</span>' +
+          '<a href="' + esc(D.linkedin) + '">LinkedIn</a>' +
+          '<a href="' + esc(D.github) + '">GitHub</a>' +
+          '<span>' + esc(D.location || "") + '</span>' +
+        '</div>' +
+        '<section><h2>' + LABELS.profile + '</h2><p class="summary">' + esc(L(D.summary)) + '</p></section>' +
+        '<section><h2>' + LABELS.experience + '</h2>' + experience + '</section>' +
+        '<section><h2>' + LABELS.skills + '</h2><div class="skills-grid">' + skills + '</div></section>';
+
+      document.title = (D.fullName || "Rividemeo") + " — CV";
+
+      // Localized toolbar labels
+      var UI = {
+        en: { back: "← Back to portfolio", dl: "Download PDF", working: "Preparing…" },
+        id: { back: "← Kembali ke portofolio", dl: "Unduh PDF", working: "Menyiapkan…" },
+      }[LANG];
+      document.getElementById("backLink").textContent = UI.back;
+      document.getElementById("dlLabel").textContent = UI.dl;
+
+      // Direct download — generate a real PDF, no print dialog.
+      var btn = document.getElementById("dlBtn");
+      var label = document.getElementById("dlLabel");
+      btn.addEventListener("click", function () {
+        if (typeof html2pdf === "undefined") {
+          // Library failed to load (e.g. offline) — fall back to print dialog.
+          window.print();
+          return;
+        }
+        var prev = label.textContent;
+        label.textContent = UI.working;
+        btn.disabled = true;
+        var fileName = (D.fullName || "Rividemeo").replace(/\s+/g, "-") + "-CV.pdf";
+        html2pdf()
+          .set({
+            margin: [10, 12, 12, 12],
+            filename: fileName,
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+            pagebreak: { mode: ["css", "legacy"], avoid: [".job li", ".job__top", ".skill-row"] },
+          })
+          .from(document.getElementById("cv"))
+          .save()
+          .then(function () { label.textContent = prev; btn.disabled = false; })
+          .catch(function () { label.textContent = prev; btn.disabled = false; });
+      });
+    })();
+  </script>
+</body>
+</html>
