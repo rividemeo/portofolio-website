@@ -46,6 +46,7 @@
       whatsappLink: `https://wa.me/${D.whatsappNumber}`,
       linkedin: D.linkedin,
       github: D.github,
+      medium: D.medium,
     };
     $$("[data-bind-href]").forEach((el) => {
       const key = el.getAttribute("data-bind-href");
@@ -119,6 +120,11 @@
         <div class="project__stack">
           ${p.stack.map((s) => `<span>${s}</span>`).join("")}
         </div>
+        ${
+          p.link
+            ? `<a class="project__link" href="${p.link}" target="_blank" rel="noopener">${t("proj.visit")} ↗</a>`
+            : ""
+        }
       </article>`
       )
       .join("");
@@ -232,9 +238,10 @@
     const links = [
       { label: "in", href: D.linkedin, title: "LinkedIn" },
       { label: "⌨", href: D.github, title: "GitHub" },
+      { label: "M", href: D.medium, title: "Medium" },
       { label: "✉", href: `mailto:${D.email}`, title: "Email" },
       { label: "💬", href: `https://wa.me/${D.whatsappNumber}`, title: "WhatsApp" },
-    ];
+    ].filter((l) => l.href);
     wrap.innerHTML = links
       .map(
         (l) =>

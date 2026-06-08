@@ -67,6 +67,7 @@ window.I18N = {
     "proj.challenge": "Challenge",
     "proj.solution": "Solution",
     "proj.result": "Result",
+    "proj.visit": "Visit",
 
     /* Services */
     "serv.tag": "05 — Services",
@@ -174,6 +175,7 @@ window.I18N = {
     "proj.challenge": "Tantangan",
     "proj.solution": "Solusi",
     "proj.result": "Hasil",
+    "proj.visit": "Kunjungi",
 
     /* Services */
     "serv.tag": "05 — Layanan",

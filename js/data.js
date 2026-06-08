@@ -32,6 +32,7 @@ const PORTFOLIO = {
   whatsappDisplay: "+62 813 1642 1463",
   linkedin: "https://linkedin.com/in/rivi-demeo-992295150",
   github: "https://github.com/rividemeo",
+  medium: "https://medium.com/@rividemeo",
 
   /* ---------- Skills (only category names are translated) ---------- */
   skills: [
@@ -156,6 +157,26 @@ const PORTFOLIO = {
         id: "Memperkuat kredibilitas online perusahaan, mempermudah calon pelanggan menemukan informasi layanan, dan menjadi media pemasaran digital 24/7.",
       },
       tags: ["Website", "Freelance"],
+      link: "https://muliautamamandiri.co.id",
+    },
+    {
+      name: "AutomationTestCineplex",
+      tagline: { en: "Robot Framework UI automation for Cineplex", id: "Automation UI Cineplex dengan Robot Framework" },
+      stack: ["Robot Framework", "Selenium", "Python"],
+      challenge: {
+        en: "Validating key user journeys on the Cineplex (21cineplex.com) movie site — playing trailers, browsing now-playing theaters by city, and checking upcoming releases — reliably and repeatably.",
+        id: "Memvalidasi alur utama pengguna di situs film Cineplex (21cineplex.com) — memutar trailer, menelusuri bioskop now-playing per kota, dan mengecek film yang akan datang — secara andal dan berulang.",
+      },
+      solution: {
+        en: "Built a keyword-driven test suite with Robot Framework and SeleniumLibrary covering three scenarios: playing a random movie trailer, viewing now-playing theaters in another city (Yogyakarta), and watching a trailer for a coming-soon movie — with screenshots and HTML reports.",
+        id: "Membangun test suite berbasis keyword dengan Robot Framework dan SeleniumLibrary yang mencakup tiga skenario: memutar trailer film acak, melihat bioskop now-playing di kota lain (Yogyakarta), dan menonton trailer film yang akan datang — lengkap dengan screenshot dan laporan HTML.",
+      },
+      result: {
+        en: "Repeatable end-to-end browser tests that verify core site functionality on every run and produce clear log, output, and report files for review.",
+        id: "Pengujian end-to-end browser yang dapat diulang untuk memverifikasi fungsi inti situs di setiap eksekusi dan menghasilkan file log, output, dan laporan yang jelas.",
+      },
+      tags: ["Test Automation", "Open Source"],
+      link: "https://github.com/rividemeo/AutomationTestCineplex",
     },
   ],
 

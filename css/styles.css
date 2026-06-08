@@ -289,6 +289,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .project__block p { font-size: 0.92rem; color: var(--text-muted); }
 .project__stack { display: flex; gap: 7px; flex-wrap: wrap; margin-top: auto; padding-top: 16px; }
 .project__stack span { font-size: 0.78rem; color: var(--text); background: var(--surface-2); border: 1px solid var(--border); padding: 4px 10px; border-radius: 8px; }
+.project__link { display: inline-flex; align-items: center; gap: 4px; margin-top: 16px; font-size: 0.85rem; font-weight: 600; color: var(--accent); text-decoration: none; transition: gap 0.25s var(--ease); }
+.project__link:hover { gap: 8px; text-decoration: underline; }
 
 /* ---------- Services ---------- */
 .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; align-items: stretch; }
