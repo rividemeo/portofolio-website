@@ -54,7 +54,7 @@ const PORTFOLIO = {
     {
       category: { en: "Testing", id: "Testing" },
       icon: "✅",
-      items: ["Playwright", "Automation Framework", "Postman", "JMeter"],
+      items: ["Playwright", "Automation Framework", "Postman", "JMeter", "Cypress"],
     },
     {
       category: { en: "DevOps", id: "DevOps" },
