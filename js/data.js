@@ -54,17 +54,17 @@ const PORTFOLIO = {
     {
       category: { en: "Testing", id: "Testing" },
       icon: "✅",
-      items: ["Playwright", "Automation Framework", "Postman", "JMeter", "Cypress"],
+      items: ["Playwright", "Cypress", "Selenium", "Automation Framework", "Postman", "Kreya", "JMeter"],
     },
     {
       category: { en: "DevOps", id: "DevOps" },
       icon: "🚀",
-      items: ["Docker", "Jenkins", "Github Actions"],
+      items: ["Docker", "Jenkins", "GitHub Actions", "Azure DevOps"],
     },
     {
       category: { en: "Tools & Platforms", id: "Tools & Platform" },
       icon: "🧰",
-      items: ["Selenium", "Kreya", "TestRail", "Azure DevOps", "Visual Studio", "Visual Studio Code"],
+      items: ["TestRail", "Visual Studio", "Visual Studio Code"],
     },
   ],
 
@@ -236,19 +236,19 @@ const PORTFOLIO = {
     packages: [
       {
         sessions: { en: "1 Session", id: "1 Sesi" },
-        price: "Rp65.000",
+        price: "55.000",
         duration: { en: "60 minutes", id: "60 menit" },
         featured: false,
       },
       {
         sessions: { en: "2 Sessions", id: "2 Sesi" },
-        price: "Rp120.000",
+        price: "Rp100.000",
         duration: { en: "120 minutes", id: "120 menit" },
         featured: true,
       },
       {
         sessions: { en: "4 Sessions", id: "4 Sesi" },
-        price: "Rp220.000",
+        price: "150.000",
         duration: { en: "240 minutes", id: "240 menit" },
         featured: false,
       },
