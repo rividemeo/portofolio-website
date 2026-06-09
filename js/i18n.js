@@ -180,7 +180,7 @@ window.I18N = {
     /* Services */
     "serv.tag": "05 — Layanan",
     "serv.title": "Layanan freelance",
-    "serv.lead": "Butuh website atau automation suite yang andal? Berikut cara saya membantu — mulai dari Rp2.000.000.",
+    "serv.lead": "Butuh website atau automation suite yang andal? Berikut cara saya membantu.",
     "serv.popular": "Paling populer",
     "serv.cta": "Mulai",
 
